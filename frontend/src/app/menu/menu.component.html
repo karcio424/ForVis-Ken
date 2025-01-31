@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <a class="navbar-brand" routerLink="/home" routerLinkActive="active">ForVis</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+          aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation"
+          (click)="menuCollapsed = !menuCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!---->
+  <div class="navbar-collapse" id="navbarsExampleDefault" [ngClass]="{collapse: menuCollapsed}">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item" *ngIf="(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/visualizations" routerLinkActive="active">Visualizations</a>
+      </li>
+      <li class="nav-item" *ngIf="(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/maxsat" routerLinkActive="active">MaxSat</a>
+      </li>
+      <li class="nav-item" *ngIf="(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/sat" routerLinkActive="active">Sat</a>
+      </li>
+      <li class="nav-item" *ngIf="!(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/edit" routerLinkActive="active">My account</a>
+      </li>
+      <li class="nav-item" *ngIf="!(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" routerLink="/register" routerLinkActive="active">Sign Up</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/docs" routerLinkActive="active">Docs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" routerLinkActive="active">About</a>
+      </li>
+      <li class="nav-item" *ngIf="(isLoggedIn$ | async).valueOf()">
+        <a class="nav-link" (click)="onLogout()" routerLinkActive="active">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

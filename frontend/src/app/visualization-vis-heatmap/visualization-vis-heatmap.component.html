@@ -1,0 +1,12 @@
+<div class="subnav text-center">
+  <h3>Heatmap ({{ fileName }})</h3>
+  <div id="info" *ngIf="info">
+    <div id="message" class="alert alert-info">{{ info }}</div>
+  </div>
+</div>
+
+<div *ngIf="loading" class="loader"></div>
+
+<div class="container p-5">
+  <canvas #visualization id="visualization"> {{ visualization }}</canvas>
+</div>

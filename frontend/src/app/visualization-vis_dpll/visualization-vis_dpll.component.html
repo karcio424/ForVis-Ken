@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="text-md-center">
+    <h3>DPLL Solver Visualization ({{ fileName }})</h3>
+  </div>
+  <form #dpllGraphForm="ngForm">
+    <div class="form-group col-md-8 mr-auto">
+      <p>Choose heuristic:</p>
+      <div>
+        <label>
+          <input type="radio" name="varType" [(ngModel)]="heuristicType" [value]="3" required>MOMS
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="varType" [(ngModel)]="heuristicType" [value]="1" required>DLIS
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="varType" [(ngModel)]="heuristicType" [value]="2" required>Jeroslow Wang
+        </label>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary" [disabled]="!dpllGraphForm.form.valid" (click)="loadHeuristic()">
+      Draw
+    </button>
+  </form>
+  <div class="buttons col-md-8 mx-auto">
+    <button class="btn btn-info" (click)="startStab()" [disabled]="stabilizationInProgress">Start Stabilization</button>
+    <button class="btn btn-info" (click)="stopStab()" [disabled]="!stabilizationInProgress">Stop Stabilization</button>
+    <button class="btn btn-info" (click)="downloadPng()">Download as PNG</button>
+    <button class="btn btn-info" (click)="downloadPdf()">Download as PDF</button>
+  </div>
+  <div id="info" *ngIf="info">
+    <div id="message" class="alert alert-info">{{ info }}</div>
+  </div>
+</div>
+<div id="visualization"></div>
+<div *ngIf="loading" class="loader"></div>

@@ -1,0 +1,59 @@
+.docs {
+  margin: auto;
+  text-align: justify;
+  max-width: 1000px;
+  min-height: 3000px;
+
+  background-color: whitesmoke;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 2px 16px;
+}
+.docs_header {
+  text-align: center;
+}
+
+.docs_footer {
+  float: left;
+  text-align: left;
+}
+
+.docs:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+h4,h5{
+  color: lightslategray;
+  margin-top: 10px;
+}
+h6{
+  color: gray;
+}
+
+img{
+  display: block;
+  margin-top: 30px;
+  height: 300px;
+  width: 300px;
+}
+
+figure{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+figcaption {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dimacsExample {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+}
